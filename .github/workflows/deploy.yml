@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ sva ]
 
 jobs:
   deploy:
@@ -11,8 +11,8 @@ jobs:
     env:
       QUANTUM_USER: ${{ secrets.QUANTUM_USER }}
       QUANTUM_PASSWORD: ${{ secrets.QUANTUM_PASSWORD }}
-      QUANTUM_ENDPOINT: "tpwd-klimadashboard"
-      QUANTUM_STACK: "wordpress"
+      QUANTUM_ENDPOINT: "sva"
+      QUANTUM_STACK: "wordpress-keyclaok-test"
     steps:
       - uses: actions/checkout@v3
       - name: Deploy to Planetary Quantum

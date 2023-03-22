@@ -17,8 +17,12 @@ services:
     secrets:
       - mysql-password
     deploy:
+      placement:
+        constraints:
+        - node.hostname == node-002.sva
+      replicas: 1
       labels:
-        traefik.http.routers.wordpress.rule: Host(`bad-belzig.klima-daten.de`)
+        traefik.http.routers.wordpress.rule: Host(`wordpress-test.smart-village.app`)
         traefik.http.routers.wordpress.tls: "true"
         traefik.http.routers.wordpress.tls.certresolver: default
         traefik.docker.network: public
