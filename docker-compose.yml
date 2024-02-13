@@ -5,7 +5,7 @@ services:
     image: wordpress:6
     restart: always
     environment:
-      WORDPRESS_DB_HOST: db 
+      WORDPRESS_DB_HOST: mysql 
       WORDPRESS_DB_USER: root 
       WORDPRESS_DB_PASSWORD_FILE: /run/secrets/mysql-password
       WORDPRESS_DB_NAME: wordpress
@@ -25,7 +25,7 @@ services:
         traefik.http.services.wordpress-michendorf.loadbalancer.server.port: 80
         traefik.enable: "true"
 
-  db:
+  mysql:
     image: mysql:5.7
     restart: always
     environment:
